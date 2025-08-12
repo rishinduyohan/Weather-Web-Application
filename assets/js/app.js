@@ -66,7 +66,7 @@ hourlyForecast.forEach(hour => {
 const dailyForecastContainer = document.getElementById('daily-forecast');
 dailyForecast.forEach(daily => {
     const dailyItem = document.createElement('div');
-    dailyItem.className = 'bg-gradient-to-b from-cyan-100 to-white rounded-xl shadow p-4 text-center';
+    dailyItem.className = 'bg-blue-100 rounded-xl shadow p-4 text-center';
     dailyItem.innerHTML = `
         <p class="font-bold text-blue-700">${daily.day}</p>
         <h1 class="text-2xl">${daily.icon}</h1>
@@ -91,9 +91,9 @@ weatherDetails.forEach(weather => {
 const navbarContainer = document.getElementById('navbar');
 if (navbarContainer) {
     const navItem = document.createElement('nav');
-    navItem.className = 'bg-white border-gray-200 dark:bg-gray-900';
+    navItem.className = 'bg-white border-gray-200 dark:bg-gray-900 ';
     navItem.innerHTML = `
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="assets/images/icons8-sun.svg" class="h-8" alt="Flowbite Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Daily Accu</span>
@@ -129,6 +129,14 @@ if (navbarContainer) {
                 d="M1 1h15M1 7h15M1 13h15" />
             </svg>
           </button>
+          <div>
+          <button 
+                id="themeToggle" 
+                class="flex items-center gap-2 px-4 py-2 transition-all duration-200"
+            >
+                <span id="themeIcon" class="text-lg">🌙</span>
+            </button>
+            </div>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
           <div class="relative mt-3 md:hidden">
@@ -158,7 +166,7 @@ if (navbarContainer) {
               <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
                 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
             </li>
-
+            
           </ul>
         </div>
       </div>
@@ -208,9 +216,8 @@ if (mapContainer) {
       <div class="mt-16 lg:mt-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
-              width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15831.555923537337!2d80.33542144397657!3d7.253474534048998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae316b5affca98d%3A0xec4aece6bdbb55b1!2sKegalle!5e0!3m2!1sen!2slk!4v1754999178282!5m2!1sen!2slk" width="600" height="450" style="border:0;" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div>
             <div class="max-w-full mx-auto rounded-lg overflow-hidden">
