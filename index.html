@@ -14,7 +14,57 @@
 
   <div id="hero"></div>
 
-    
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-8">
+      <div class="flex-1">
+        <h3 id="location" class="text-2xl font-bold text-blue-800">Colombo, Western, Sri Lanka</h3>
+        <p id="local-time" class="text-blue-400 mb-4">Monday, 2:15 PM</p>
+        <div class="flex items-center gap-4">
+          <img id="weather-icon" src="assets/images/icons8-sun.svg" alt="Sunny" class="w-20 drop-shadow-lg">
+          <div>
+            <h4 id="condition" class="text-xl font-semibold text-blue-700 mb-1">Sunny</h4>
+            <p id="temperature" class="text-3xl font-bold text-blue-900 mb-1">30°C / 86°F</p>
+            <span id="feels-like" class="text-blue-400 text-sm">Feels like: 32°C</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 grid grid-cols-3 gap-4 text-center" id="weather-Details"></div>
+    </section>
+
+
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8">
+      <h4 class="text-xl font-bold text-blue-800 mb-4">Hourly Forecast</h4>
+      <div class="flex gap-4 overflow-x-auto pb-2" id="hourly"></div>
+    </section>
+
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6">
+      <h4 class="text-xl font-bold text-blue-800 mb-4">Daily Forecast</h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-gradient-to-b from-cyan-100 to-white rounded-xl shadow p-4 text-center">
+          <p class="font-bold text-blue-700">Tuesday</p>
+          <img src="icons/sunny.png" width="40" alt="" class="mx-auto my-2">
+          <p class="text-blue-900">Max: 32°C</p>
+          <p class="text-blue-500">Min: 26°C</p>
+          <span class="text-blue-400 text-xs">Sunny</span>
+        </div>
+        <div class="bg-gradient-to-b from-cyan-100 to-white rounded-xl shadow p-4 text-center">
+          <p class="font-bold text-blue-700">Wednesday</p>
+          <img src="icons/rain.png" width="40" alt="" class="mx-auto my-2">
+          <p class="text-blue-900">Max: 28°C</p>
+          <p class="text-blue-500">Min: 24°C</p>
+          <span class="text-blue-400 text-xs">Rainy</span>
+        </div>
+        <div class="bg-gradient-to-b from-cyan-100 to-white rounded-xl shadow p-4 text-center">
+          <p class="font-bold text-blue-700">Thursday</p>
+          <img src="icons/partly-cloudy.png" width="40" alt="" class="mx-auto my-2">
+          <p class="text-blue-900">Max: 30°C</p>
+          <p class="text-blue-500">Min: 25°C</p>
+          <span class="text-blue-400 text-xs">Cloudy</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
   <section class="bg-gray-100" id="map"></section>
 
   <footer
