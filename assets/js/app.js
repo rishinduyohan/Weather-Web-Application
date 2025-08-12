@@ -94,7 +94,7 @@ if (navbarContainer) {
     navItem.className = 'bg-white border-gray-200 dark:bg-gray-900 ';
     navItem.innerHTML = `
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="inde" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="assets/images/icons8-sun.svg" class="h-8" alt="Flowbite Logo" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Daily Accu</span>
         </a>
@@ -129,14 +129,6 @@ if (navbarContainer) {
                 d="M1 1h15M1 7h15M1 13h15" />
             </svg>
           </button>
-          <div>
-          <button 
-                id="themeToggle" 
-                class="flex items-center gap-2 px-4 py-2 transition-all duration-200"
-            >
-                <span id="themeIcon" class="text-lg">🌙</span>
-            </button>
-            </div>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
           <div class="relative mt-3 md:hidden">
