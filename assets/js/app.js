@@ -44,27 +44,12 @@ const weatherDetails = [
     { id: 6, icon: '👀', title: 'Visibility', value: '10 km' }
 ];
 const dailyForecast = [
-    {
-        day: "Tuesday",
-        icon: "assets/images/icons8-sun.svg",
-        max: "32°C",
-        min: "26°C",
-        condition: "Sunny"
-    },
-    {
-        day: "Wednesday",
-        icon: "assets/images/icons8-rain.svg",
-        max: "28°C",
-        min: "24°C",
-        condition: "Rainy"
-    },
-    {
-        day: "Thursday",
-        icon: "assets/images/icons8-partly-cloudy.svg",
-        max: "30°C",
-        min: "25°C",
-        condition: "Cloudy"
-    }
+    { id: 1, day: 'Tuesday', icon: '☀️', maxTemp: '32°C', minTemp: '26°C', condition: 'Sunny' },
+    { id: 2, day: 'Wednesday', icon: '🌧️', maxTemp: '28°C', minTemp: '24°C', condition: 'Rainy' },
+    { id: 3, day: 'Thursday', icon: '🌨️', maxTemp: '30°C', minTemp: '25°C', condition: 'Cloudy' },
+    { id: 4, day: 'Friday', icon: '☀️', maxTemp: '33°C', minTemp: '27°C', condition: 'Sunny' },
+    { id: 5, day: 'Saturday', icon: '⛈️', maxTemp: '29°C', minTemp: '23°C', condition: 'Stormy' },
+    { id: 6, day: 'Sunday', icon: '🌨️', maxTemp: '31°C', minTemp: '26°C', condition: 'Partly Cloudy' }
 ];
 const hourlyForecastContainer = document.getElementById('hourly');
 hourlyForecast.forEach(hour => {
@@ -78,6 +63,20 @@ hourlyForecast.forEach(hour => {
     `;
     hourlyForecastContainer.appendChild(hourItem);
 });
+const dailyForecastContainer = document.getElementById('daily-forecast');
+dailyForecast.forEach(daily => {
+    const dailyItem = document.createElement('div');
+    dailyItem.className = 'bg-gradient-to-b from-cyan-100 to-white rounded-xl shadow p-4 text-center';
+    dailyItem.innerHTML = `
+        <p class="font-bold text-blue-700">${daily.day}</p>
+        <h1 class="text-2xl">${daily.icon}</h1>
+        <p class="text-blue-900">Max: ${daily.maxTemp}</p>
+        <p class="text-blue-500">Min: ${daily.minTemp}</p>
+        <span class="text-blue-400 text-xs">${daily.condition}</span>
+    `;
+    dailyForecastContainer.appendChild(dailyItem);
+});
+
 const weatherDetailsContainer = document.getElementById('weather-Details');
 weatherDetails.forEach(weather => {
     const weatherDetail = document.createElement('div');
