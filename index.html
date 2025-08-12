@@ -11,9 +11,7 @@
 
 <body class="bg-gray-100 min-h-screen font-sans">
   <div id="navbar"></div>
-
   <div id="hero"></div>
-
   <main class="max-w-3xl mx-auto px-4 py-8">
     <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-8">
       <div class="flex-1">
@@ -30,26 +28,17 @@
       </div>
       <div class="flex-1 grid grid-cols-3 gap-4 text-center" id="weather-Details"></div>
     </section>
-
-
     <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8">
       <h4 class="text-xl font-bold text-blue-800 mb-4">Hourly Forecast</h4>
       <div class="flex gap-4 overflow-x-auto pb-2" id="hourly"></div>
     </section>
-
     <section class="bg-white/80 rounded-2xl shadow-xl p-6">
       <h4 class="text-xl font-bold text-blue-800 mb-4">Daily Forecast</h4>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="daily-forecast"></div>
     </section>
-
   </main>
   <section class="bg-gray-100" id="map"></section>
-
-  <footer
-    class="text-center text-blue-900 py-6 mt-8 bg-gradient-to-r from-blue-200 to-cyan-100 rounded-t-2xl shadow-inner">
-    © 2025 Weather Web Application | Designed by Rishindu Yohan
-  </footer>
-
+  <footer class="bg-white dark:bg-gray-900" id="footer"></footer>
   <script src="assets/js/app.js"></script>
   <script src="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.js"></script>
 </body>
