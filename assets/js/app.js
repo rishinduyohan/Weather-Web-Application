@@ -1,4 +1,21 @@
 AOS.init();
+
+let date = new Date();
+formatDate ={
+  "Weekday":`long`,
+  "Year":`numeric`,
+  "Month":`long`,
+  "Day":`numeric`
+}
+
+function callApi(){
+  fetch("https://api.weatherapi.com/v1/current.json?key=c4beb675fb2647cf89e70046251308&q=Kegalle&aqi=no")
+  .then(response => response.json())
+  .then(data => console.log(data))
+}
+callApi();
+let currentDate = date.toLocaleDateString("en-US", formatDate);console.log(currentDate);
+document.getElementById("date").innerHTML = currentDate;
 const hourlyForecast = [
     { id: 1, icon: '☀️', title: 'Sunny', temp: '30°C', time: '1 PM' },
     { id: 2, icon: '🌨️', title: 'Cloudy', temp: '29°C', time: '2 PM' },
