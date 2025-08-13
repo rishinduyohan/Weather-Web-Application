@@ -1,32 +1,4 @@
 AOS.init();
-const weatherCard = [
-    { id: 1, title: 'Colombo, Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '31°C / 88°F', feels: 'Feels like: 33°C' },
-    { id: 2, title: 'Gampaha, Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '30°C / 86°F', feels: 'Feels like: 31°C' },
-    { id: 3, title: 'Kalutara, Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '29°C / 84°F', feels: 'Feels like: 30°C' },
-    { id: 4, title: 'Kandy, Central, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '28°C / 82°F', feels: 'Feels like: 29°C' },
-    { id: 5, title: 'Matale, Central, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '29°C / 84°F', feels: 'Feels like: 30°C' },
-    { id: 6, title: 'Nuwara Eliya, Central, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '20°C / 68°F', feels: 'Feels like: 19°C' },
-    { id: 7, title: 'Galle, Southern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '27°C / 81°F', feels: 'Feels like: 28°C' },
-    { id: 8, title: 'Matara, Southern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Cloudy', temperature: '28°C / 82°F', feels: 'Feels like: 29°C' },
-    { id: 9, title: 'Hambantota, Southern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '32°C / 90°F', feels: 'Feels like: 33°C' },
-    { id: 10, title: 'Jaffna, Northern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '32°C / 90°F', feels: 'Feels like: 34°C' },
-    { id: 11, title: 'Kilinochchi, Northern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Cloudy', temperature: '31°C / 88°F', feels: 'Feels like: 32°C' },
-    { id: 12, title: 'Mannar, Northern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '30°C / 86°F', feels: 'Feels like: 31°C' },
-    { id: 13, title: 'Vavuniya, Northern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '33°C / 91°F', feels: 'Feels like: 34°C' },
-    { id: 14, title: 'Mullaitivu, Northern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '31°C / 88°F', feels: 'Feels like: 32°C' },
-    { id: 15, title: 'Batticaloa, Eastern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '29°C / 84°F', feels: 'Feels like: 30°C' },
-    { id: 16, title: 'Ampara, Eastern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '32°C / 90°F', feels: 'Feels like: 33°C' },
-    { id: 17, title: 'Trincomalee, Eastern, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Cloudy', temperature: '30°C / 86°F', feels: 'Feels like: 31°C' },
-    { id: 18, title: 'Kurunegala, North Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '33°C / 91°F', feels: 'Feels like: 35°C' },
-    { id: 19, title: 'Puttalam, North Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '32°C / 90°F', feels: 'Feels like: 33°C' },
-    { id: 20, title: 'Anuradhapura, North Central, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '34°C / 93°F', feels: 'Feels like: 36°C' },
-    { id: 21, title: 'Polonnaruwa, North Central, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Cloudy', temperature: '32°C / 90°F', feels: 'Feels like: 33°C' },
-    { id: 22, title: 'Badulla, Uva, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-rain.svg', condition: 'Rainy', temperature: '25°C / 77°F', feels: 'Feels like: 26°C' },
-    { id: 23, title: 'Monaragala, Uva, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '31°C / 88°F', feels: 'Feels like: 32°C' },
-    { id: 24, title: 'Ratnapura, Sabaragamuwa, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '29°C / 84°F', feels: 'Feels like: 30°C' },
-    { id: 25, title: 'Kegalle, Sabaragamuwa, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '30°C / 86°F', feels: 'Feels like: 31°C' }
-];
-
 const hourlyForecast = [
     { id: 1, icon: '☀️', title: 'Sunny', temp: '30°C', time: '1 PM' },
     { id: 2, icon: '🌨️', title: 'Cloudy', temp: '29°C', time: '2 PM' },
