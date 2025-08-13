@@ -7,13 +7,14 @@
   <title>Weather App UI</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 min-h-screen font-sans">
   <div id="navbar" class="navbar"></div>
   <div id="hero"></div>
   <main class="max-w-3xl mx-auto px-4 py-8">
-    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-8">
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-8" data-aos="fade-up" data-aos-duration="2000">
       <div class="flex-1">
         <h3 id="location" class="text-2xl font-bold text-blue-800">Colombo, Western, Sri Lanka</h3>
         <p id="local-time" class="text-blue-400 mb-4">Monday, 2:15 PM</p>
@@ -28,18 +29,19 @@
       </div>
       <div class="flex-1 grid grid-cols-3 gap-4 text-center" id="weather-Details"></div>
     </section>
-    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8">
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6 mb-8" data-aos="fade-up-right">
       <h4 class="text-xl font-bold text-blue-800 mb-4">Hourly Forecast</h4>
       <div class="flex gap-4 overflow-x-auto pb-2" id="hourly"></div>
     </section>
-    <section class="bg-white/80 rounded-2xl shadow-xl p-6">
+    <section class="bg-white/80 rounded-2xl shadow-xl p-6" data-aos="fade-down-left">
       <h4 class="text-xl font-bold text-blue-800 mb-4">Daily Forecast</h4>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="daily-forecast"></div>
     </section>
   </main>
-  <section id="contact"></section>
-  <section class="bg-gray-100" id="map"></section>
+  <section id="contact" data-aos="zoom-in"></section>
+  <section class="bg-gray-100" id="map" data-aos="zoom-in"></section>
     <footer class="bg-white dark:bg-gray-900" id="footer"></footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="https://unpkg.com/flowbite@2.3.0/dist/flowbite.min.js"></script>
 </body>

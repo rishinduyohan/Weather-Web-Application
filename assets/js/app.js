@@ -1,3 +1,4 @@
+AOS.init();
 const weatherCard = [
     { id: 1, title: 'Colombo, Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-sun.svg', condition: 'Sunny', temperature: '31°C / 88°F', feels: 'Feels like: 33°C' },
     { id: 2, title: 'Gampaha, Western, Sri Lanka', time: 'Monday, 2:15 PM', icon: 'assets/images/icons8-partly-cloudy.svg', condition: 'Partly Cloudy', temperature: '30°C / 86°F', feels: 'Feels like: 31°C' },
