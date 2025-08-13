@@ -1,88 +1,111 @@
 AOS.init();
 
-let date = new Date();
-formatDate ={
-  "Weekday":`long`,
-  "Year":`numeric`,
-  "Month":`long`,
-  "Day":`numeric`
+// let date = new Date();
+// formatDate ={
+//   "Weekday":`long`,
+//   "Year":`numeric`,
+//   "Month":`long`,
+//   "Day":`numeric`
+// }
+// let currentDate = date.toLocaleDateString("en-US", formatDate);console.log(currentDate);
+// document.getElementById("date").innerText = currentDate;
+getId =()=>{
+let searchCity = document.getElementById("default-search");
+searchCity.addEventListener("keypress", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    let city = searchCity.value;
+    callApi(city);
+  }
+});
+};
+function callApi(city) {
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=c4beb675fb2647cf89e70046251308&q=${city}&days=1&aqi=no&alerts=no`)
+    .then(response => response.json())
+    .then(data => {
+      setDetails(data);
+    })
 }
+setDetails = (data) => {
+  let cityName = document.getElementById("location");
+  let temp = document.getElementById("temperature");
+  let condition = document.getElementById("condition");
+  let time =  document.getElementById("local-time");
+  let icon = document.getElementById("weather-icon");
 
-function callApi(){
-  fetch("https://api.weatherapi.com/v1/current.json?key=c4beb675fb2647cf89e70046251308&q=Kegalle&aqi=no")
-  .then(response => response.json())
-  .then(data => console.log(data))
+  cityName.innerText = data.location.name +', '+ data.location.region +', '+ data.location.country;
+  temp.innerText = data.current.temp_c + "°C";
+  condition.innerText = data.current.condition.text;
+  time.innerText = new Date(data.location.localtime).toLocaleString();
+  icon.src = data.current.condition.icon;
 }
-callApi();
-let currentDate = date.toLocaleDateString("en-US", formatDate);console.log(currentDate);
-document.getElementById("date").innerHTML = currentDate;
 const hourlyForecast = [
-    { id: 1, icon: '☀️', title: 'Sunny', temp: '30°C', time: '1 PM' },
-    { id: 2, icon: '🌨️', title: 'Cloudy', temp: '29°C', time: '2 PM' },
-    { id: 3, icon: '🌧️', title: 'Rain', temp: '18°C', time: '3 PM' },
-    { id: 4, icon: '💨', title: 'Windy', temp: '20°C', time: '4 PM' },
-    { id: 5, icon: '⛈️', title: 'Storm', temp: '15°C', time: '5 PM' },
-    { id: 6, icon: '☀️', title: 'Sunny', temp: '35°C', time: '6 PM' },
-    { id: 7, icon: '🌨️', title: 'Cloudy', temp: '25°C', time: '7 PM' }
+  { id: 1, icon: '☀️', title: 'Sunny', temp: '30°C', time: '1 PM' },
+  { id: 2, icon: '🌨️', title: 'Cloudy', temp: '29°C', time: '2 PM' },
+  { id: 3, icon: '🌧️', title: 'Rain', temp: '18°C', time: '3 PM' },
+  { id: 4, icon: '💨', title: 'Windy', temp: '20°C', time: '4 PM' },
+  { id: 5, icon: '⛈️', title: 'Storm', temp: '15°C', time: '5 PM' },
+  { id: 6, icon: '☀️', title: 'Sunny', temp: '35°C', time: '6 PM' },
+  { id: 7, icon: '🌨️', title: 'Cloudy', temp: '25°C', time: '7 PM' }
 ];
 const weatherDetails = [
-    { id: 1, icon: '💨', title: 'Wind', value: '15 KPH' },
-    { id: 2, icon: '💧', title: 'Humidity', value: '65%' },
-    { id: 3, icon: '☁️', title: 'Cloud', value: '10%' },
-    { id: 4, icon: '🌞', title: 'UV Index', value: '5' },
-    { id: 5, icon: '📏', title: 'Pressure', value: '1015 hPa' },
-    { id: 6, icon: '👀', title: 'Visibility', value: '10 km' }
+  { id: 1, icon: '💨', title: 'Wind', value: '15 KPH' },
+  { id: 2, icon: '💧', title: 'Humidity', value: '65%' },
+  { id: 3, icon: '☁️', title: 'Cloud', value: '10%' },
+  { id: 4, icon: '🌞', title: 'UV Index', value: '5' },
+  { id: 5, icon: '📏', title: 'Pressure', value: '1015 hPa' },
+  { id: 6, icon: '👀', title: 'Visibility', value: '10 km' }
 ];
 const dailyForecast = [
-    { id: 1, day: 'Tuesday', icon: '☀️', maxTemp: '32°C', minTemp: '26°C', condition: 'Sunny' },
-    { id: 2, day: 'Wednesday', icon: '🌧️', maxTemp: '28°C', minTemp: '24°C', condition: 'Rainy' },
-    { id: 3, day: 'Thursday', icon: '🌨️', maxTemp: '30°C', minTemp: '25°C', condition: 'Cloudy' },
-    { id: 4, day: 'Friday', icon: '☀️', maxTemp: '33°C', minTemp: '27°C', condition: 'Sunny' },
-    { id: 5, day: 'Saturday', icon: '⛈️', maxTemp: '29°C', minTemp: '23°C', condition: 'Stormy' },
-    { id: 6, day: 'Sunday', icon: '🌨️', maxTemp: '31°C', minTemp: '26°C', condition: 'Partly Cloudy' }
+  { id: 1, day: 'Tuesday', icon: '☀️', maxTemp: '32°C', minTemp: '26°C', condition: 'Sunny' },
+  { id: 2, day: 'Wednesday', icon: '🌧️', maxTemp: '28°C', minTemp: '24°C', condition: 'Rainy' },
+  { id: 3, day: 'Thursday', icon: '🌨️', maxTemp: '30°C', minTemp: '25°C', condition: 'Cloudy' },
+  { id: 4, day: 'Friday', icon: '☀️', maxTemp: '33°C', minTemp: '27°C', condition: 'Sunny' },
+  { id: 5, day: 'Saturday', icon: '⛈️', maxTemp: '29°C', minTemp: '23°C', condition: 'Stormy' },
+  { id: 6, day: 'Sunday', icon: '🌨️', maxTemp: '31°C', minTemp: '26°C', condition: 'Partly Cloudy' }
 ];
 const hourlyForecastContainer = document.getElementById('hourly');
 hourlyForecast.forEach(hour => {
-    const hourItem = document.createElement('div');
-    hourItem.className = 'bg-gradient-to-b from-blue-200 to-white rounded-xl shadow p-4 min-w-[110px] text-center';
-    hourItem.innerHTML = `
+  const hourItem = document.createElement('div');
+  hourItem.className = 'bg-gradient-to-b from-blue-200 to-white rounded-xl shadow p-4 min-w-[110px] text-center';
+  hourItem.innerHTML = `
         <p class="text-blue-600 font-semibold mb-1">${hour.time}</p>
         <h1 class="text-2xl">${hour.icon}</h1>
         <p class="text-blue-700 text-sm mb-1">${hour.title}</p>
         <p class="text-xl font-bold text-blue-900">${hour.temp}</p>
     `;
-    hourlyForecastContainer.appendChild(hourItem);
+  hourlyForecastContainer.appendChild(hourItem);
 });
 const dailyForecastContainer = document.getElementById('daily-forecast');
 dailyForecast.forEach(daily => {
-    const dailyItem = document.createElement('div');
-    dailyItem.className = 'bg-blue-100 rounded-xl shadow p-4 text-center';
-    dailyItem.innerHTML = `
+  const dailyItem = document.createElement('div');
+  dailyItem.className = 'bg-blue-100 rounded-xl shadow p-4 text-center';
+  dailyItem.innerHTML = `
         <p class="font-bold text-blue-700">${daily.day}</p>
         <h1 class="text-2xl">${daily.icon}</h1>
         <p class="text-blue-900">Max: ${daily.maxTemp}</p>
         <p class="text-blue-500">Min: ${daily.minTemp}</p>
         <span class="text-blue-400 text-xs">${daily.condition}</span>
     `;
-    dailyForecastContainer.appendChild(dailyItem);
+  dailyForecastContainer.appendChild(dailyItem);
 });
 
 const weatherDetailsContainer = document.getElementById('weather-Details');
 weatherDetails.forEach(weather => {
-    const weatherDetail = document.createElement('div');
-    weatherDetail.className = 'bg-blue-100 rounded-xl p-3 shadow';
-    weatherDetail.innerHTML = `
+  const weatherDetail = document.createElement('div');
+  weatherDetail.className = 'bg-blue-100 rounded-xl p-3 shadow';
+  weatherDetail.innerHTML = `
        <span class="text-2xl">${weather.icon}</span>
         <div class="text-blue-700 font-semibold mt-1" id="wind-speed">${weather.value}</div>
         <div class="text-xs text-blue-400">${weather.title}</div>
     `;
-    weatherDetailsContainer.appendChild(weatherDetail);
+  weatherDetailsContainer.appendChild(weatherDetail);
 });
 const navbarContainer = document.getElementById('navbar');
 if (navbarContainer) {
-    const navItem = document.createElement('nav');
-    navItem.className = 'bg-white border-gray-200 dark:bg-gray-900 ';
-    navItem.innerHTML = `
+  const navItem = document.createElement('nav');
+  navItem.className = 'bg-white border-gray-200 dark:bg-gray-900 ';
+  navItem.innerHTML = `
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <a href="inde" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="assets/images/icons8-sun.svg" class="h-8" alt="Flowbite Logo" />
@@ -153,13 +176,14 @@ if (navbarContainer) {
         </div>
       </div>
         `;
-    navbarContainer.appendChild(navItem);
+  navbarContainer.appendChild(navItem);
+  
 }
 const heroContainer = document.getElementById('hero');
 if (heroContainer) {
-    const heroItem = document.createElement('div');
-    heroItem.className = 'relative';
-    heroItem.innerHTML = `
+  const heroItem = document.createElement('div');
+  heroItem.className = 'relative';
+  heroItem.innerHTML = `
       <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="assets/images/istockphoto-962500712-640_adpp_is.mp4" type="video/mp4">
     </video>
@@ -178,19 +202,18 @@ if (heroContainer) {
           <input type="search" id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search city, location or zip-code..." required />
-          <button type="submit"
-            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="index.html">Search</a></button>
         </div>
       </form>
     </div>
     `;
-    heroContainer.appendChild(heroItem);
+  heroContainer.appendChild(heroItem);
+  getId();
 }
 const mapContainer = document.getElementById('map');
 if (mapContainer) {
-    const mapItem = document.createElement('div');
-    mapItem.className = 'max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8';
-    mapItem.innerHTML = `
+  const mapItem = document.createElement('div');
+  mapItem.className = 'max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8';
+  mapItem.innerHTML = `
       <div class="max-w-2xl lg:max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-extrabold text-gray-900">Visit Our Location</h2>
         <p class="mt-4 text-lg text-gray-500">A clear and concise address, directions, and potentially a map.</p>
@@ -223,13 +246,13 @@ if (mapContainer) {
         </div>
       </div>
     `;
-    mapContainer.appendChild(mapItem);
+  mapContainer.appendChild(mapItem);
 }
 const contactUsContainer = document.getElementById('contact');
 if (contactUsContainer) {
-    const contactItem = document.createElement('div');
-    contactItem.className = 'py-8 lg:py-16 px-4 mx-auto max-w-screen-md';
-    contactItem.innerHTML = `
+  const contactItem = document.createElement('div');
+  contactItem.className = 'py-8 lg:py-16 px-4 mx-auto max-w-screen-md';
+  contactItem.innerHTML = `
       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-dark">Contact Us
         </h2>
         <p class="mb-8 lg:mb-16 font-semibold text-center text-gray-600 sm:text-xl">Have a question,
@@ -259,13 +282,13 @@ if (contactUsContainer) {
             message</button>
         </form>
     `;
-    contactUsContainer.appendChild(contactItem);
+  contactUsContainer.appendChild(contactItem);
 }
 const footerContainer = document.getElementById('footer');
 if (footerContainer) {
-    const footerItem = document.createElement('div');
-    footerItem.className = 'mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8';
-    footerItem.innerHTML = `
+  const footerItem = document.createElement('div');
+  footerItem.className = 'mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8';
+  footerItem.innerHTML = `
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
           <a href="index.html" class="flex items-center">
@@ -362,5 +385,5 @@ if (footerContainer) {
         </div>
       </div>
     `;
-    footerContainer.appendChild(footerItem);
+  footerContainer.appendChild(footerItem);
 }
